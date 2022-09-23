@@ -43,6 +43,7 @@
 #include "platform-nrf5.h"
 #include <nrf.h>
 #include <nrf_drv_clock.h>
+#include <hal/nrf_gpio.h>
 
 #include <openthread/config.h>
 
@@ -55,12 +56,25 @@
 
 #endif
 
+#define LED_PIN NRF_GPIO_PIN_MAP(0, 6)
+
+
 extern bool gPlatformPseudoResetWasRequested;
 
 void __cxa_pure_virtual(void)
 {
     while (1)
         ;
+}
+
+void otToggleLed(void)
+{
+    nrf_gpio_pin_toggle(LED_PIN);
+}
+
+void otGpioInit(void)
+{
+    nrf_gpio_cfg_output(LED_PIN);
 }
 
 void otSysInit(int argc, char *argv[])
