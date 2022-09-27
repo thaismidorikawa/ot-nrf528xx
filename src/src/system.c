@@ -72,6 +72,16 @@ void otToggleLed(void)
     nrf_gpio_pin_toggle(LED_PIN);
 }
 
+void otSetLed(void)
+{
+    nrf_gpio_pin_set(LED_PIN);
+}
+
+void otClearLed(void)
+{
+    nrf_gpio_pin_clear(LED_PIN);
+}
+
 void otGpioInit(void)
 {
     nrf_gpio_cfg_output(LED_PIN);
