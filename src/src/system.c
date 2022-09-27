@@ -67,11 +67,6 @@ void __cxa_pure_virtual(void)
         ;
 }
 
-void otToggleLed(void)
-{
-    nrf_gpio_pin_toggle(LED_PIN);
-}
-
 void otSetLed(void)
 {
     nrf_gpio_pin_set(LED_PIN);
@@ -80,11 +75,6 @@ void otSetLed(void)
 void otClearLed(void)
 {
     nrf_gpio_pin_clear(LED_PIN);
-}
-
-void otGpioInit(void)
-{
-    nrf_gpio_cfg_output(LED_PIN);
 }
 
 void otSysInit(int argc, char *argv[])
@@ -130,6 +120,8 @@ void otSysInit(int argc, char *argv[])
     nrf5CryptoInit();
 
     gPlatformPseudoResetWasRequested = false;
+
+    nrf_gpio_cfg_output(LED_PIN);
 }
 
 void otSysDeinit(void)
