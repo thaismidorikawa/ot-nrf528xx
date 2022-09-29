@@ -1,4 +1,4 @@
 [submodule "openthread"]
 	path = openthread
-	url = https://github.com/thaismidorikawa/openthread.git
-	branch = test
+	url = git@bitbucket.org:fourtress-src/thread-openthread.git
+	branch = master
